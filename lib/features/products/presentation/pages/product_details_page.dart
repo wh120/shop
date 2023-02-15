@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store/features/products/data/products_list_response.dart';
-
-import '../../../../core/widgets/sliders/carousel.dart';
 import '../../../../core/widgets/sliders/carousel_with_indicator.dart';
-import '../../../../core/widgets/sliders/image_slider_view.dart';
-import '../widgets/app_bar_view.dart';
+
 import '../widgets/rating_view.dart';
 
 class ProductDetailsPage extends StatefulWidget {
