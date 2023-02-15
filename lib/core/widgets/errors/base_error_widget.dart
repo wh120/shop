@@ -26,7 +26,7 @@ class _BaseErrorWidgetState extends State<BaseErrorWidget> {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        width: 100.0,
+
         child: InkWell(
 
           onTap: widget.onTap,
@@ -40,7 +40,8 @@ class _BaseErrorWidgetState extends State<BaseErrorWidget> {
               ),
 
               Text(
-                widget.title ?? '',
+                "${widget.title}",
+                //widget.title ?? '',
                 style: TextStyle(
                   fontSize: 20,
 
@@ -52,7 +53,7 @@ class _BaseErrorWidgetState extends State<BaseErrorWidget> {
                 height: 10,
               ),
               Text(
-                widget.subtitle ?? "",
+                widget.subtitle ?? "press to retry",
                 style: TextStyle(
 
                   fontSize: 20,

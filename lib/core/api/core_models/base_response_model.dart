@@ -35,7 +35,7 @@ class BaseResponseModel<Result extends BaseResultModel> {
         }
       } else {
         targetUrl = json['targetUrl'];
-        success = json['success'] ?? true;
+        success = json['success'] ?? false;
         serverError = json['error'] != null
             ? ServerError.fromJson(json['error'])
             : null;
@@ -44,8 +44,8 @@ class BaseResponseModel<Result extends BaseResultModel> {
         this.error = error;
 
         if (fromJson != null) {
-          if (json != null) {
-            result = fromJson(json);
+          if (json['result'] != null) {
+            result = fromJson(json['result']);
           } else {
             if (success!) result = fromJson({});
           }
@@ -64,7 +64,7 @@ class BaseResponseModel<Result extends BaseResultModel> {
       }
     }
     else {
-      success = json['isOk'] ?? false;
+      success = json['message'] == null ;
       if (json['message'] != null) {
 
         String errorMessage  = json['message'] is String ?json['message']:json['message']["content"];
@@ -77,11 +77,11 @@ class BaseResponseModel<Result extends BaseResultModel> {
       this.error = error;
 
       if (fromJson != null){
-        if (json['result'] != null) {
+        if (json != null) {
           result = fromJson(json);
         } else {
           if (success!) {
-            result = fromJson({"da":"s"});
+            result = fromJson({});
           }
         }
       }

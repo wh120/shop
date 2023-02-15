@@ -8,10 +8,12 @@ class ProductsRepository {
 
   static Future<BaseResultModel> getAllMyMedia(data) async {
     var res = await RemoteDataSource.request<ProductsList>(
+      isLaravel: true,
         converter: (json) => ProductsList.fromJson(json),
         method: HttpMethod.get,
         queryParameters: data.toJson(),
         withAuthentication: false,
+
         url: ApiURLs.getAllProducts);
     return res;
   }
