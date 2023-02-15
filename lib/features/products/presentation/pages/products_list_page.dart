@@ -21,36 +21,29 @@ class _ProductsListPageState extends State<ProductsListPage> {
       appBar: AppBar(),
       body: PaginationList<Product>(
         repositoryCallBack: (data) => ProductsRepository.getAllMyMedia(data),
-        listBuilder: (List<Product> list){
+        listBuilder: (List<Product> list) {
           return ListView.builder(
-              // gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              //     maxCrossAxisExtent: 200,
-              //     childAspectRatio: 3 / 2,
-              //     crossAxisSpacing: 20,
-              //     mainAxisSpacing: 20),
               itemCount: list.length,
-              itemBuilder: (c,index){
+              itemBuilder: (c, index) {
                 return InkWell(
-
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ProductItemView(
                       product: list[index],
-                      onProductPressed: ( ){
+                      onProductPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) =>  ProductScreen(product: list[index] ),
+                            builder: (context) =>
+                                ProductDetailsPage(product: list[index]),
                           ),
                         );
                       },
                     ),
                   ),
                 );
-              });
-
-
+              }
+              );
         },
-
       ),
     );
   }
