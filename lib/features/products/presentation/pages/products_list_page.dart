@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/boilerplate/pagination/widgets/pagination_list.dart';
 import 'package:store/features/products/presentation/pages/product_details_page.dart';
-
 import '../../data/products_list_response.dart';
 import '../../domain/repos/products_repository.dart';
-import '../widgets/product_card.dart';
 import '../widgets/product_item_view.dart';
 
 class ProductsListPage extends StatefulWidget {
