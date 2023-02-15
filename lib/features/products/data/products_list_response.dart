@@ -1,16 +1,18 @@
-class ProductsList {
-  List<Product>? products;
+import 'package:store/core/api/core_models/base_result_model.dart';
+
+class ProductsList extends ListResultModel<Product>{
+  late List<Product> list;
   int? total;
   int? skip;
   int? limit;
 
-  ProductsList({this.products, this.total, this.skip, this.limit});
+  ProductsList({required this.list, this.total, this.skip, this.limit});
 
   ProductsList.fromJson(Map<String, dynamic> json) {
     if (json['products'] != null) {
-      products = <Product>[];
+      list = <Product>[];
       json['products'].forEach((v) {
-        products!.add(new Product.fromJson(v));
+        list!.add(new Product.fromJson(v));
       });
     }
     total = json['total'];
@@ -20,8 +22,8 @@ class ProductsList {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.products != null) {
-      data['products'] = this.products!.map((v) => v.toJson()).toList();
+    if (this.list != null) {
+      data['products'] = this.list!.map((v) => v.toJson()).toList();
     }
     data['total'] = this.total;
     data['skip'] = this.skip;
@@ -62,7 +64,7 @@ class Product {
     description = json['description'];
     price = json['price'];
     discountPercentage = json['discountPercentage'];
-    rating = json['rating'];
+    rating = json['rating'].toDouble();
     stock = json['stock'];
     brand = json['brand'];
     category = json['category'];
