@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-
 import '../../data/products_list_response.dart';
-import 'color_indicator_view.dart';
 import 'rating_view.dart';
 
 class ProductItemView extends StatelessWidget {
@@ -62,9 +59,8 @@ class ProductItemView extends StatelessWidget {
                           .textTheme
                           .bodyText2
                           ?.copyWith(fontSize: 12, color: Colors.grey)),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 2.0),
-
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 2.0),
                 ),
                 Row(
                   children: [

@@ -16,7 +16,7 @@ class PaginationCubit<ListModel> extends Cubit<PaginationState> {
   PaginationCubit(this.getData) : super(PaginationInitial ());
   List<ListModel>  list=[];
   Map<String,dynamic> params={};
-  int maxResultCount = 5;
+  int maxResultCount = 15;
   int skipCount = 0;
   String? keyword;
 
