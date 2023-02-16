@@ -40,7 +40,8 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                                 fontFamily: "Inter",
                                 fontWeight: FontWeight.w400),
                             textAlign: TextAlign.left)),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 7),
+
                     SizedBox(
                         width: double.infinity,
                         child: Text(widget.product.title ?? "",
@@ -49,6 +50,31 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                                 fontFamily: "Inter",
                                 fontWeight: FontWeight.w700),
                             textAlign: TextAlign.left)),
+                    const SizedBox(height: 8),
+                    Text('${widget.product.description}',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        softWrap: false,
+                        textAlign: TextAlign.left,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText2
+                            ?.copyWith(fontSize: 12, color: Colors.grey)),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        Text('${widget.product.price} \$',
+                            maxLines: 1,
+                            overflow: TextOverflow.clip,
+                            softWrap: false,
+                            style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.orangeAccent
+                            )),
+
+
+                      ],
+                    ),
                     const SizedBox(height: 10),
                     RatingView(
                         value: widget.product.rating?.toInt() ?? 0,
@@ -67,6 +93,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                           onPressed: () => {},
                           child: const Text("Add to Bag")),
                     ),
+                    const SizedBox(height: 10),
                     OutlinedButton(
                         onPressed: () => {},
                         style: OutlinedButton.styleFrom(

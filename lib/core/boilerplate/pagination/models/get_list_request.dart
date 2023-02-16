@@ -20,7 +20,7 @@ class GetListRequest{
    if(this.skipCount !=null) data['skip'] = this.skipCount;
    if(this.maxResultCount !=null) data['limit'] = this.maxResultCount;
     if(this.sorting !=null) data['Sorting'] = this.sorting;
-    if(this.keyword !=null) data['Keyword'] = this.keyword;
+    if(this.keyword !=null) data['q'] = this.keyword;
     if(extraParams != null) {
       data.addAll(extraParams ?? {});
     }

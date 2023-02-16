@@ -63,7 +63,7 @@ class Product {
     title = json['title'];
     description = json['description'];
     price = json['price'];
-    discountPercentage = json['discountPercentage'];
+    discountPercentage = json['discountPercentage'].toDouble();
     rating = json['rating'].toDouble();
     stock = json['stock'];
     brand = json['brand'];
